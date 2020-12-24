@@ -1,6 +1,51 @@
 //algorithm practice in js
 
 
+//compare arrays and check for common items:
+
+  //nested for loop :(
+function commonItem(array1, array2){
+  for(let i=0; i< array1.length; i++){
+    for(let x=0; x< array2.length; x++){
+      if(array1[i] === array2[x]){
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+test1 = commonItem(["a", "b", "c", "d"], ["x", "y", "z", "c"]);
+console.log(test1);
+test2 = commonItem(["a", "b", "c", "d"], ["x", "y", "z"]);
+console.log(test2);
+
+  // convert to object, loop & compare
+function commonItemBetter(array1, array2) {
+  let compare = {};
+  for (let i = 0; i < array1.length; i++) {
+    if (!compare[i]) {
+      const item = array1[i];
+      compare[item] = true;
+    }
+  }
+  // console.log(compare);
+  for (let x = 0; x < array2.length; x++) {
+    if (compare[array2[x]]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+test1 = commonItemBetter(["a", "b", "c", "d"], ["x", "y", "z", "c"]);
+console.log(test1);
+test2 = commonItemBetter(["a", "b", "c", "d"], ["x", "y", "z"]);
+console.log(test2);
+
+
+
+
 //Print each array value and the sum so far
 function printSumAndValue(input)
 {
@@ -551,5 +596,7 @@ function duplicate(input_array)
 
 test = duplicate([4, "Ulysses", 42, false]);
 console.log(test);
+
+
 
 
